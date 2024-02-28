@@ -1,0 +1,70 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:uxap="sap.uxap" xmlns:layout="sap.ui.layout" xmlns:f="sap.f" controllerName="sembcorp.com.travelexpense.controller.Home" busyIndicatorDelay="0">
+	<Page id="employeePage" title="Travel &amp; Expense" showNavButton="true" navButtonPress=".onNavBack" enableScrolling="true">
+		<content>
+			<Panel id="employeePanel" width="auto" class="sapUiNoContentPadding">
+				<!-- <headerToolbar>
+					<Toolbar>
+						<Title text=": " level="H2"/>
+						<ToolbarSpacer/>
+						<Title text="Year Selected: " level="H2"/>
+						<ToolbarSpacer/>
+						<Button text="Change Financial Year" width="230px" press=".onFiancialYearDialogPressOld" class="sapUiSmallMarginTop sapUiSmallMarginBottom"/>
+					</Toolbar>
+				</headerToolbar> -->
+				<content>
+					<uxap:ObjectPageHeaderContent class="sapUiSmallMarginTop">
+						<uxap:content>
+							<layout:VerticalLayout class="sapUiSmallMarginTop">
+								<f:Avatar displaySize="XL"/>
+								<Title text="{employeeData>/0/empName}" titleStyle="H4"/>
+							</layout:VerticalLayout>
+							<layout:VerticalLayout class="sapUiSmallMarginTop">
+								<ObjectStatus title="Employee ID" text="{employeeData>/0/empID}"/>
+								<ObjectStatus title="Designation" text="{employeeData>/0/empDesignation}"/>
+								<ObjectStatus title="Employee Grade" text="{employeeData>/0/empGrade}"/>
+								<ObjectStatus title="Date of Joining" text="{employeeData>/0/empGrade}"/>
+							</layout:VerticalLayout>
+							<layout:VerticalLayout class="sapUiSmallMarginTop">
+								<ObjectStatus title="Cost Center" text="{employeeData>/0/costCenter}"/>
+								<ObjectStatus title="Email Id" text="{employeeData>/0/empMail}"/>
+								<ObjectAttribute title="Mobile No" text="{employeeData>/0/empMobileNo1}"/>
+							</layout:VerticalLayout>
+							<layout:VerticalLayout class="sapUiSmallMarginTop">
+								<ObjectAttribute title="Address" text="{employeeData>/0/address1}"/>
+								<ObjectAttribute title="City" text="{employeeData>/0/empGrade}"/>
+								<ObjectAttribute title="Gender" text="{employeeData>/0/gender}"/>
+								<ObjectAttribute title="Country" text="{employeeData>/0/country}"/>
+								<ObjectAttribute title="PostalCode" text=""/>
+							</layout:VerticalLayout>
+						</uxap:content>
+					</uxap:ObjectPageHeaderContent>
+				</content>
+			</Panel>
+			
+				<IconTabBar id="idIconTabBarFiori2" expanded="true">
+				<items>
+					<IconTabFilter text="My Trips &amp; Expenses" key="info">
+						<content>
+							<mvc:XMLView viewName="sembcorp.com.travelexpense.view.components.MyTripExpenses" visible="true"/>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter text="Create Travel Request" key="info">
+						<content>
+							<mvc:XMLView viewName="sembcorp.com.travelexpense.view.components.CreateTravelRequest" visible="true"/>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter text="Create Expense Report" key="notes">
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+			
+			
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button id="SendForApprovalBtnID" type="Accept" text="Send for Approval" press="onSave"/>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

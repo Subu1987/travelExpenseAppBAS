@@ -1,0 +1,2 @@
+empID,companyCode,empName,empMail,empBranch,empGrade,empDesignation,gender,empMobileNo1,empMobileNo2,address1,address2,country,activeIND,costCenter
+1,8001,Subrato Saha,subrotosaha@gmail.com,kolkata,D,Quality Engineer,Male,9807654123,9088888234,"salt lake, kolkata",,India,X,1001
