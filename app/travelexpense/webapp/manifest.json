@@ -83,6 +83,12 @@
       },
       "countryNameData": {
         "type": "sap.ui.model.json.JSONModel"
+      },
+      "activityNameData": {
+        "type": "sap.ui.model.json.JSONModel"
+      },
+      "travelMasterData": {
+        "type": "sap.ui.model.json.JSONModel"
       }
     },
     "resources": {

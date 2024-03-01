@@ -12,6 +12,7 @@ sap.ui.define([
                 
                 this.getEmployeeData();
                 this.getCountryNameData();
+                this.getActivityNameData();
 
             },
             getEmployeeData: function(){
@@ -35,7 +36,6 @@ sap.ui.define([
             },
             getCountryNameData: function(){
                 let that = this;
-
                 let oModel = this.getOwnerComponent().getModel();
                 let sPath = "/countryMaster";
                 // console.log(oModel);
@@ -55,8 +55,24 @@ sap.ui.define([
                     console.log(oError);
                 })
             },
-            onComboBoxChange: function(){
-                console.log("working combobox");
+            getActivityNameData: function(){
+                let that = this;
+                let oModel = this.getOwnerComponent().getModel();
+                let sPath = "/activityMaster";
+                // console.log(oModel);
+
+                let oContextBinding = oModel.bindContext(sPath);
+                oContextBinding.requestObject().then(function(oData){
+                    console.log(oData.value);
+                    
+                    let oActivityNameModel = that.getOwnerComponent().getModel("activityNameData");
+                    oActivityNameModel.setData(oData.value);
+
+                    console.log(oActivityNameModel);
+                }).catch(function(oError){
+                    console.log(oError);
+                })
             }
+            
         });
     });

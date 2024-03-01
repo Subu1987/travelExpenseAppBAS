@@ -11,8 +11,8 @@ entity countryMaster
 
 entity activityMaster
 {
-    key activityID : UUID;
-    activityName : String(100);
+    key activityID : Integer;
+    activityName : String(100) not null;
 }
 
 entity reasonMaster
@@ -23,7 +23,7 @@ entity reasonMaster
 
 entity employeeMaster
 {
-    key empID : UUID;
+    key empID : Integer;
     companyCode : Integer not null;
     empName : String(100) not null;
     empMail : String(100) not null;
@@ -38,6 +38,8 @@ entity employeeMaster
     country : String(100) not null;
     activeIND : String(100);
     costCenter : Integer;
+    travel: Association to many travelMaster on travel.employee = $self;
+    
 }
 
 entity managerMaster
@@ -61,21 +63,22 @@ entity managerMaster
 
 entity travelMaster
 {
-    key travelID : UUID;
-    key empID : UUID;
+    key travelID : Integer;
     startD : String(50) not null;
     endD : String(50) not null;
     departure : String(50) not null;
     arrival : String(50) not null;
     postingD : String(50);
-    countryName : String(100);
+    country : String(100);
     destination : String(100);
     addtionalDest : String(100);
-    activityName : String(100);
-    reasonName : String(100);
+    activity : String(100);
+    reason : String(100);
     estmCosts : String(100);
-    comment : String(100);
+    comment : String(100); 
     costAsgmt : String(100);
+    //define association with employeeMaster
+    employee: Association to employeeMaster;
 }
 
 entity expenseClaimMaster
