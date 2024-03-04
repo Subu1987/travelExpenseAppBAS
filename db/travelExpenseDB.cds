@@ -77,8 +77,10 @@ entity travelMaster
     estmCosts : String(100);
     comment : String(100); 
     costAsgmt : String(100);
+    saveAs: String(5);
     //define association with employeeMaster
     employee: Association to employeeMaster;
+    
 }
 
 entity expenseClaimMaster

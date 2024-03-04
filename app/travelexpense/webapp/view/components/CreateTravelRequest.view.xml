@@ -233,8 +233,8 @@
 									<content>
 										<HBox justifyContent="End" class="sapUiMediumMarginTopBottom">
 											<HBox width="23%" justifyContent="SpaceBetween">
-												<Button text="Save as Draft" type="Emphasized" press="saveAsDraft"/>
-												<Button text="Send for Approval" type="Emphasized" press="sendForApproval"/>
+												<Button id="saveAsDraft" text="Save as Draft" type="Emphasized" press="saveAsDraft"/>
+												<Button id="sendForApproval" text="Send for Approval" type="Emphasized" press="sendForApproval"/>
 											</HBox>
 										</HBox>
 									</content>

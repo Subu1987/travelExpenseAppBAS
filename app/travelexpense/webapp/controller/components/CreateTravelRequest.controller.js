@@ -68,28 +68,32 @@ sap.ui.define([
                 // set the new data to the model 
                 oTravelMasterModel.setData(oTravelMasterData);
             },
-            sendForApproval: function(){
+            sendForApproval: function (oEvent) {
                 let that = this;
+                // let selectedId = oEvent.getParameters().id.split("--")[1];
                 let oModel = this.getOwnerComponent().getModel();
                 let oTravelMasterModel = this.getOwnerComponent().getModel("travelMasterData");
                 let oTravelMasterData = oTravelMasterModel.getData();
+                oTravelMasterData.saveAs = "F";
+                oTravelMasterModel.setData(oTravelMasterData);
+
                 let sPath = "/travelMaster";
+                // set the content type header 
+                let oHeaders = {
+                    "Content-Type": "multipart/mixed"
+                };
 
-                let oBinding = oModel.bindList(sPath);
-                oBinding.create(oTravelMasterData, {
-                    success: function(data) {
-                        // Handle success
-                        console.log("Entity created successfully:", data);
-                    },
-                    error: function(error) {
-                        // Handle error
-                        console.error("Error creating entity:", error);
-                    }
+                let oBindList = oModel.bindList(sPath,null,null,oHeaders);
+                // let oBindList = oModel.bindList(sPath);
+                let oContext = oBindList.create(oTravelMasterData);
+
+                oContext.created().then(function (data) {
+                    console.log("data saved successfully", data);
+                }).catch(function (error) {
+                    console.log("something wrong", error);
                 });
-
-
             },
-            saveAsDraft: function(){
+            saveAsDraft: function () {
 
             }
         });
