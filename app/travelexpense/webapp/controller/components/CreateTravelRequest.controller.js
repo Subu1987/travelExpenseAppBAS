@@ -70,22 +70,18 @@ sap.ui.define([
             },
             sendForApproval: function (oEvent) {
                 let that = this;
-                // let selectedId = oEvent.getParameters().id.split("--")[1];
                 let oModel = this.getOwnerComponent().getModel();
                 let oTravelMasterModel = this.getOwnerComponent().getModel("travelMasterData");
                 let oTravelMasterData = oTravelMasterModel.getData();
                 oTravelMasterData.saveAs = "F";
                 oTravelMasterModel.setData(oTravelMasterData);
+                let oData = oTravelMasterData;
 
                 let sPath = "/travelMaster";
                 // set the content type header 
-                let oHeaders = {
-                    "Content-Type": "multipart/mixed"
-                };
-
-                let oBindList = oModel.bindList(sPath,null,null,oHeaders);
-                // let oBindList = oModel.bindList(sPath);
-                let oContext = oBindList.create(oTravelMasterData);
+                let oBindList = oModel.bindList("/travelMaster");
+                let oContext = oBindList.create(oData);
+                console.log(oData);
 
                 oContext.created().then(function (data) {
                     console.log("data saved successfully", data);

@@ -1,1 +1,22 @@
 GET http://localhost:4004/odata/v4/travel-expense-dbdb/employeeMaster
+
+###
+POST http://localhost:4004/odata/v4/travel-expense-dbdb/travelMaster
+Content-Type: application/json
+
+{
+    "startD": "3524",
+    "endD": "3624",
+    "postingD": "3524",
+    "departure": "workplace",
+    "arrival": "client office",
+    "country": "India",
+    "destination": "USA",
+    "addtionalDest": "kolkata",
+    "activity": "Travel Insurance",
+    "reason": "business purpose",
+    "comment": "expansion of business",
+    "estmCosts": "9000",
+    "costAsgmt": "ok",
+    "saveAs": "F"
+}

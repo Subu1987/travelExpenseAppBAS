@@ -38,8 +38,7 @@ entity employeeMaster
     country : String(100) not null;
     activeIND : String(100);
     costCenter : Integer;
-    travel: Association to many travelMaster on travel.employee = $self;
-    
+  
 }
 
 entity managerMaster
@@ -63,7 +62,7 @@ entity managerMaster
 
 entity travelMaster
 {
-    key travelID : Integer;
+    key travelID : Integer @cds.auto;
     startD : String(50) not null;
     endD : String(50) not null;
     departure : String(50) not null;
@@ -77,10 +76,7 @@ entity travelMaster
     estmCosts : String(100);
     comment : String(100); 
     costAsgmt : String(100);
-    saveAs: String(5);
-    //define association with employeeMaster
-    employee: Association to employeeMaster;
-    
+    saveAs: String(5); 
 }
 
 entity expenseClaimMaster
