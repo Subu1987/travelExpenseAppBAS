@@ -79,7 +79,7 @@
           "groupId":"$auto"
         }
       },
-      "employeeData": {
+      "employeeMasterData": {
         "type": "sap.ui.model.json.JSONModel"
       },
       "countryNameData": {

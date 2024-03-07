@@ -8,16 +8,14 @@
   "cds": {
     "requires": {
       "db": {
-        "kind": "sqlite",
-        "credentials": {
-          "url": "db.sqlite"
-        }
+        "kind": "sqlite"
       }
     }
   },
   "dependencies": {
     "@sap/cds": "^7",
-    "express": "^4"
+    "express": "^4",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^1",

@@ -1,8 +1,5 @@
 namespace travelExpenseDB.db;
 
-using {Country} from '@sap/cds/common';
-
-
 entity countryMaster
 {
     key countryID : Integer;
@@ -38,6 +35,7 @@ entity employeeMaster
     country : String(100) not null;
     activeIND : String(100);
     costCenter : Integer;
+    travel: Association to many travelMaster on travel.employee = $self;
   
 }
 
@@ -76,8 +74,9 @@ entity travelMaster
     estmCosts : String(100);
     comment : String(100); 
     costAsgmt : String(100);
-    saveAs: String(5); 
-}
+    saveAs: String(5);
+    employee: Association to employeeMaster;
+}   
 
 entity expenseClaimMaster
 {
@@ -95,4 +94,10 @@ entity expenseClaimMaster
     comment : String(100);
     estmCosts : String(100) not null;
     costAsgmt : String(100) not null;
+}
+entity testData {
+    key ID : UUID @cds.auto;
+    name : String(20);
+    age:Integer;
+
 }

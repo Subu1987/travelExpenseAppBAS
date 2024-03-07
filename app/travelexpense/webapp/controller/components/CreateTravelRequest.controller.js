@@ -73,15 +73,19 @@ sap.ui.define([
                 let oModel = this.getOwnerComponent().getModel();
                 let oTravelMasterModel = this.getOwnerComponent().getModel("travelMasterData");
                 let oTravelMasterData = oTravelMasterModel.getData();
-                oTravelMasterData.saveAs = "F";
-                oTravelMasterModel.setData(oTravelMasterData);
-                let oData = oTravelMasterData;
+                let oEmployeeMasterModel = this.getOwnerComponent().getModel("employeeMasterData");
+                let existingEmployeeData = oEmployeeMasterModel.getData();
 
-                let sPath = "/travelMaster";
-                // set the content type header 
-                let oBindList = oModel.bindList("/travelMaster");
-                let oContext = oBindList.create(oData);
-                console.log(oData);
+                oTravelMasterData.saveAs = "F";
+                // Set the association between the travel record and the existing employee
+                oTravelMasterData.employee = {
+                    "empID": existingEmployeeData[0].empID
+                }
+                oTravelMasterModel.setData(oTravelMasterData);
+
+                let sPath = "/travelMaster"; 
+                let oBindList = oModel.bindList(sPath);
+                let oContext = oBindList.create(oTravelMasterData);
 
                 oContext.created().then(function (data) {
                     console.log("data saved successfully", data);
@@ -92,5 +96,6 @@ sap.ui.define([
             saveAsDraft: function () {
 
             }
+
         });
     });

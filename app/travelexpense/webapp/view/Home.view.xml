@@ -16,32 +16,33 @@
 						<uxap:content>
 							<layout:VerticalLayout class="sapUiSmallMarginTop">
 								<f:Avatar displaySize="XL"/>
-								<Title text="{employeeData>/0/empName}" titleStyle="H4"/>
+								<Title text="{employeeMasterData>/0/empName}" titleStyle="H4"/>
 							</layout:VerticalLayout>
 							<layout:VerticalLayout class="sapUiSmallMarginTop">
-								<ObjectStatus title="Employee ID" text="{employeeData>/0/empID}"/>
-								<ObjectStatus title="Designation" text="{employeeData>/0/empDesignation}"/>
-								<ObjectStatus title="Employee Grade" text="{employeeData>/0/empGrade}"/>
-								<ObjectStatus title="Date of Joining" text="{employeeData>/0/empGrade}"/>
+								<ObjectStatus title="Employee ID" text="{employeeMasterData>/0/empID}"/>
+								<ObjectStatus title="Designation" text="{employeeMasterData>/0/empDesignation}"/>
+								<ObjectStatus title="Employee Grade" text="{employeeMasterData>/0/empGrade}"/>
+								<ObjectStatus title="Date of Joining" text="{employeeMasterData>/0/empGrade}"/>
 							</layout:VerticalLayout>
 							<layout:VerticalLayout class="sapUiSmallMarginTop">
-								<ObjectStatus title="Cost Center" text="{employeeData>/0/costCenter}"/>
-								<ObjectStatus title="Email Id" text="{employeeData>/0/empMail}"/>
-								<ObjectAttribute title="Mobile No" text="{employeeData>/0/empMobileNo1}"/>
+								<ObjectStatus title="Cost Center" text="{employeeMasterData>/0/costCenter}"/>
+								<ObjectStatus title="Email Id" text="{employeeMasterData>/0/empMail}"/>
+								<ObjectAttribute title="Mobile No" text="{employeeMasterData>/0/empMobileNo1}"/>
 							</layout:VerticalLayout>
 							<layout:VerticalLayout class="sapUiSmallMarginTop">
-								<ObjectAttribute title="Address" text="{employeeData>/0/address1}"/>
-								<ObjectAttribute title="City" text="{employeeData>/0/empGrade}"/>
-								<ObjectAttribute title="Gender" text="{employeeData>/0/gender}"/>
-								<ObjectAttribute title="Country" text="{employeeData>/0/country}"/>
+								<ObjectAttribute title="Address" text="{employeeMasterData>/0/address1}"/>
+								<ObjectAttribute title="City" text="{employeeMasterData>/0/empGrade}"/>
+								<ObjectAttribute title="Gender" text="{employeeMasterData>/0/gender}"/>
+								<ObjectAttribute title="Country" text="{employeeMasterData>/0/country}"/>
 								<ObjectAttribute title="PostalCode" text=""/>
 							</layout:VerticalLayout>
 						</uxap:content>
 					</uxap:ObjectPageHeaderContent>
+					<Button text="click" press="onTestData"></Button>
 				</content>
 			</Panel>
 			
-				<IconTabBar id="idIconTabBarFiori2" expanded="true">
+			<IconTabBar id="idIconTabBarFiori2" expanded="true">
 				<items>
 					<IconTabFilter text="My Trips &amp; Expenses" key="info">
 						<content>

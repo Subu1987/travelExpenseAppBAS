@@ -10,12 +10,12 @@ sap.ui.define([
         return BaseController.extend("sembcorp.com.travelexpense.controller.Home", {
             onInit: function () {
                 
-                this.getEmployeeData();
+                this.getEmployeeMasterData();
                 this.getCountryNameData();
                 this.getActivityNameData();
 
             },
-            getEmployeeData: function(){
+            getEmployeeMasterData: function(){
                 let that = this;
 
                 let oModel = this.getOwnerComponent().getModel();
@@ -26,10 +26,10 @@ sap.ui.define([
                 oContextBinding.requestObject().then(function(oData){
                     console.log(oData.value);
                     
-                    let oEmployeeModel = that.getOwnerComponent().getModel("employeeData");
-                    oEmployeeModel.setData(oData.value);
+                    let oEmployeeMasterModel = that.getOwnerComponent().getModel("employeeMasterData");
+                    oEmployeeMasterModel.setData(oData.value);
 
-                    console.log(oEmployeeModel);
+                    console.log(oEmployeeMasterModel);
                 }).catch(function(oError){
                     console.log(oError);
                 })
@@ -72,7 +72,24 @@ sap.ui.define([
                 }).catch(function(oError){
                     console.log(oError);
                 })
+            },
+            onTestData: function(){
+                let oData = {
+                    "name": "Subrato",
+                    "age": 28
+                };
+                let oModel = this.getOwnerComponent().getModel();
+                let oBindList = oModel.bindList("/testData");
+                let oContext = oBindList.create(oData);
+                console.log(oData);
+                
+                oContext.created().then(function (data) {
+                    console.log("data saved successfully", data);
+                }).catch(function (error) {
+                    console.log("something wrong", error);
+                });
             }
+
             
         });
     });
