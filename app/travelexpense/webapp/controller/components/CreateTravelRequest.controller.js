@@ -23,10 +23,10 @@ sap.ui.define([
                 let tripEdit = this.byId("tripEdit");
                 let tripView = this.byId("tripView");
 
-                let oTravelMasterModel = this.getOwnerComponent().getModel("travelMasterData");
-                let oTravelMasterData = oTravelMasterModel.getData();
+                let oTravelModel = this.getOwnerComponent().getModel("travelData");
+                let oTravelData = oTravelModel.getData();
 
-                console.log(oTravelMasterData);
+                console.log(oTravelData);
 
                 tripEdit.setVisible(false);
                 tripView.setVisible(true);
@@ -36,10 +36,10 @@ sap.ui.define([
                 let tripEdit = this.byId("tripEdit");
                 let tripView = this.byId("tripView");
 
-                let oTravelMasterModel = this.getOwnerComponent().getModel("travelMasterData");
-                let oTravelMasterData = oTravelMasterModel.getData();
+                let oTravelModel = this.getOwnerComponent().getModel("travelData");
+                let oTravelData = oTravelModel.getData();
 
-                console.log(oTravelMasterData);
+                console.log(oTravelData);
 
                 tripEdit.setVisible(true);
                 tripView.setVisible(false);
@@ -51,44 +51,45 @@ sap.ui.define([
                 this.byId("saveTrip").setVisible(active);
             },
             onComboBoxChange: function (oEvent) {
-                let oTravelMasterModel = this.getOwnerComponent().getModel("travelMasterData");
-                let oTravelMasterData = oTravelMasterModel.getData();
+                let oTravelModel = this.getOwnerComponent().getModel("travelData");
+                let oTravelData = oTravelModel.getData();
 
                 let selectedValue = oEvent.getParameters().value;
                 let selectedId = oEvent.getParameters().id.split("--")[1];
 
                 if (selectedId === "country") {
-                    oTravelMasterData.country = selectedValue;
+                    oTravelData.country = selectedValue;
                 } else if (selectedId === "destination") {
-                    oTravelMasterData.destination = selectedValue;
+                    oTravelData.destination = selectedValue;
                 } else if (selectedId === "activity") {
-                    oTravelMasterData.activity = selectedValue;
+                    oTravelData.activity = selectedValue;
                 }
 
                 // set the new data to the model 
-                oTravelMasterModel.setData(oTravelMasterData);
+                oTravelModel.setData(oTravelData);
             },
             sendForApproval: function (oEvent) {
                 let that = this;
                 let oModel = this.getOwnerComponent().getModel();
-                let oTravelMasterModel = this.getOwnerComponent().getModel("travelMasterData");
-                let oTravelMasterData = oTravelMasterModel.getData();
+                let oTravelModel = this.getOwnerComponent().getModel("travelData");
+                let oTravelData = oTravelModel.getData();
                 let oEmployeeMasterModel = this.getOwnerComponent().getModel("employeeMasterData");
                 let existingEmployeeData = oEmployeeMasterModel.getData();
 
-                oTravelMasterData.saveAs = "F";
+                oTravelData.saveAs = "F";
                 // Set the association between the travel record and the existing employee
-                oTravelMasterData.employee = {
+                oTravelData.employee = {
                     "empID": existingEmployeeData[0].empID
                 }
-                oTravelMasterModel.setData(oTravelMasterData);
+                oTravelModel.setData(oTravelData);
 
-                let sPath = "/travelMaster"; 
+                let sPath = "/travelMaster";
                 let oBindList = oModel.bindList(sPath);
-                let oContext = oBindList.create(oTravelMasterData);
+                let oContext = oBindList.create(oTravelData);
 
                 oContext.created().then(function (data) {
                     console.log("data saved successfully", data);
+
                 }).catch(function (error) {
                     console.log("something wrong", error);
                 });

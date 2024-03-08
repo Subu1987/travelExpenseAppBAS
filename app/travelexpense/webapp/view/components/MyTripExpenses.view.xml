@@ -26,18 +26,7 @@
 							<ScrollContainer height="300px" vertical="true">
 								<l:VerticalLayout width="100%">
 									<l:content>
-										<Table id="tripListTable" items="{/Reports}" growingScrollToLoad="true" growing="true" fixedLayout="false" sticky="ColumnHeaders">
-											<!--<headerToolbar>
-											<OverflowToolbar>
-												<Title text="" level="H2"/>
-												<ToolbarSpacer/>
-												<Button tooltip="Sort" icon="sap-icon://sort" press="handleSortButtonPressed" type="Emphasized"/>
-												<Button tooltip="Filter" icon="sap-icon://filter" press="handleFilterButtonPressed" type="Emphasized"/>
-												<Button tooltip="Group" icon="sap-icon://group-2" press="handleGroupButtonPressed" type="Emphasized"/>
-												<Button tooltip="export Excel" icon="sap-icon://excel-attachment" press="handleExportExcelPressed" type="Emphasized"/>
-												
-											</OverflowToolbar>
-										</headerToolbar>-->
+										<Table id="tripListTable" items="{travelMasterData>/}" growingScrollToLoad="true" growing="true" fixedLayout="false" sticky="ColumnHeaders">
 											<infoToolbar>
 												<OverflowToolbar id="vsdFilterBar" visible="false">
 													<Text id="vsdFilterLabel"/>
@@ -69,13 +58,13 @@
 											<items>
 												<ColumnListItem vAlign="Middle">
 													<cells>
-														<ObjectNumber number="{tripNo}" textAlign="Center"/>
+														<ObjectNumber number="{travelMasterData>travelID}" textAlign="Center"/>
 														<ObjectIdentifier title="{travellerName}" text=""/>
-														<Text text="{startDate}"/>
-														<Text text="{endData}"/>
-														<Text text="{from}"/>
-														<Text text="{to}"/>
-														<ObjectIdentifier title="{status/0}" text=""/>
+														<Text text="{travelMasterData>startD}"/>
+														<Text text="{travelMasterData>endD}"/>
+														<Text text="{travelMasterData>departure}"/>
+														<Text text="{travelMasterData>arrival}"/>
+														<ObjectIdentifier title="{status}" text=""/>
 														<!--<ObjectNumber number="{}"/>
 												<ObjectNumber number="{}"/>-->
 													</cells>

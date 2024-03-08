@@ -18,22 +18,22 @@
 													<f:content>
 														<core:Title text="General Data" emphasized="true" icon="sap-icon://message-information" level="H4"/>
 														<Label text="Start Date"/>
-														<DatePicker id="DP31" displayFormat="long" value="{travelMasterData>/startD}" class="round"/>
+														<DatePicker id="DP31" displayFormat="long" value="{travelData>/startD}" class="round"/>
 														<Label text="End Date"/>
-														<DatePicker id="DP311" displayFormat="long" value="{travelMasterData>/endD}" class="round"/>
+														<DatePicker id="DP311" displayFormat="long" value="{travelData>/endD}" class="round"/>
 														<Label text="Posting Date"/>
-														<DatePicker id="D3111" displayFormat="long" value="{travelMasterData>/postingD}" class="round"/>
+														<DatePicker id="D3111" displayFormat="long" value="{travelData>/postingD}" class="round"/>
 
 														<core:Title text=""/>
 														<Label text="Departure"/>
-														<Input id="departure" placeholder="" value="{travelMasterData>/departure}" class="roundInput"/>
+														<Input id="departure" placeholder="" value="{travelData>/departure}" class="roundInput"/>
 														<!-- <ComboBox xmlns="sap.m" id="fromTrip" items="{CountryNameData>/}" change="onComboBoxChange">
 															<items>
 																<core:Item xmlns:core="sap.ui.core" key="{CountryNameData>Code}" text="{CountryNameData>Name}" />
 															</items>
 														</ComboBox> -->
 														<Label text="Arrival"/>
-														<Input id="arrival" placeholder="" value="{travelMasterData>/arrival}" class="roundInput"/>
+														<Input id="arrival" placeholder="" value="{travelData>/arrival}" class="roundInput"/>
 														<!-- <ComboBox xmlns="sap.m" id="toTrip" items="{CountryNameData>/}">
 															<items>
 																<core:Item xmlns:core="sap.ui.core" key="{CountryNameData>Code}" text="{CountryNameData>Name}"/>
@@ -56,7 +56,7 @@
 																<core:Item xmlns:core="sap.ui.core" key="{countryNameData>countryID}" text="{countryNameData>countryName}"/>
 															</items>
 														</ComboBox> -->
-														<Input id="addtionalDest" placeholder="" value="{travelMasterData>/addtionalDest}" class="roundInput"/>
+														<Input id="addtionalDest" placeholder="" value="{travelData>/addtionalDest}" class="roundInput"/>
 													</f:content>
 													<f:content>
 														<core:Title text=""/>
@@ -78,18 +78,18 @@
 															</items>
 														</ComboBox>
 														<Label text="Reason"/>
-														<Input id="reason" placeholder="" value="{travelMasterData>/reason}" class="roundInput"/>
+														<Input id="reason" placeholder="" value="{travelData>/reason}" class="roundInput"/>
 														<Label text="Comment"/>
-														<TextArea id="textArea" rows="5" cols="30" value="{travelMasterData>/comment}" liveChange="onTextChange"/>
+														<TextArea id="textArea" rows="5" cols="30" value="{travelData>/comment}" liveChange="onTextChange"/>
 													</f:content>
 													<f:content>
 														<core:Title text=""/>
 														<Label text="Estimated Costs"/>
-														<Input id="cost" placeholder="0.00" value="{travelMasterData>/estmCosts}" class="roundInput"/>
+														<Input id="cost" placeholder="0.00" value="{travelData>/estmCosts}" class="roundInput"/>
 														<Text text="INR"></Text>
 														
 														<Label text="Cost Assignment"/>
-														<Input id="costA" placeholder="" value="{travelMasterData>/costAsgmt}" class="roundInput"/>
+														<Input id="costA" placeholder="" value="{travelData>/costAsgmt}" class="roundInput"/>
 														<Button text="Change Cost Assignment"></Button>
 													</f:content>
 												</f:SimpleForm>
@@ -99,50 +99,50 @@
 													<f:content>
 														<core:Title text="General Data" emphasized="true" icon="sap-icon://message-information" level="H4"/>
 														<Label text="Start Date"/>
-														<Text text="{travelMasterData>/startD}"></Text>
+														<Text text="{travelData>/startD}"></Text>
 														<Label text="End Date"/>
-														<Text text="{travelMasterData>/endD}"></Text>
+														<Text text="{travelData>/endD}"></Text>
 														<Label text="Posting Date"/>
-														<Text text="{travelMasterData>/postingD}"></Text>
+														<Text text="{travelData>/postingD}"></Text>
 
 														<core:Title text=""/>
 														<Label text="Departure"/>
-														<Text text="{travelMasterData>/departure}"></Text>
+														<Text text="{travelData>/departure}"></Text>
 														<Label text="Arrival"/>
-														<Text text="{travelMasterData>/arrival}"></Text>
+														<Text text="{travelData>/arrival}"></Text>
 													</f:content>
 												</f:SimpleForm>
 												<f:SimpleForm id="destinatsionView" editable="true">
 													<f:content>
 														<core:Title text="Destination" emphasized="true" icon="sap-icon://locate-me"/>
 														<Label text="Country"/>
-														<Text text="{travelMasterData>/country}"></Text>
+														<Text text="{travelData>/country}"></Text>
 														<Label text="Additional Destinations"/>
-														<Text text="{travelMasterData>/addtionalDest}"></Text>
+														<Text text="{travelData>/addtionalDest}"></Text>
 													</f:content>
 													<f:content>
 														<core:Title text=""/>
 														<Label text="Destination"/>
-														<Text text="{travelMasterData>/destination}"></Text>
+														<Text text="{travelData>/destination}"></Text>
 													</f:content>
 												</f:SimpleForm>
 												<f:SimpleForm id="addiotionalInfoView" editable="true">
 													<f:content>
 														<core:Title text="Additional Information" emphasized="true" icon="sap-icon://add-coursebook"/>
 														<Label text="Activity (Planning)"/>
-														<Text text="{travelMasterData>/activity}"></Text>
+														<Text text="{travelData>/activity}"></Text>
 														
 														<Label text="Reason"/>
-														<Text text="{travelMasterData>/reason}"></Text>
+														<Text text="{travelData>/reason}"></Text>
 														<Label text="Comment"/>
-														<Text text="{travelMasterData>/comment}"></Text>
+														<Text text="{travelData>/comment}"></Text>
 													</f:content>
 													<f:content>
 														<core:Title text=""/>
 														<Label text="Estimated Costs"/>
-														<Text text="{travelMasterData>/estmCosts} INR"></Text>
+														<Text text="{travelData>/estmCosts} INR"></Text>
 														<Label text="Cost Assignment"/>
-														<Text text="{travelMasterData>/costAsgmt}"></Text>
+														<Text text="{travelData>/costAsgmt}"></Text>
 														
 													</f:content>
 												</f:SimpleForm>
@@ -181,50 +181,50 @@
 													<f:content>
 														<core:Title text="General Data" emphasized="true" icon="sap-icon://message-information" level="H4"/>
 														<Label text="Start Date"/>
-														<Text text="{travelMasterData>/startD}"></Text>
+														<Text text="{travelData>/startD}"></Text>
 														<Label text="End Date"/>
-														<Text text="{travelMasterData>/endD}"></Text>
+														<Text text="{travelData>/endD}"></Text>
 														<Label text="Posting Date"/>
-														<Text text="{travelMasterData>/postingD}"></Text>
+														<Text text="{travelData>/postingD}"></Text>
 
 														<core:Title text=""/>
 														<Label text="Departure"/>
-														<Text text="{travelMasterData>/departure}"></Text>
+														<Text text="{travelData>/departure}"></Text>
 														<Label text="Arrival"/>
-														<Text text="{travelMasterData>/arrival}"></Text>
+														<Text text="{travelData>/arrival}"></Text>
 													</f:content>
 												</f:SimpleForm>
 												<f:SimpleForm id="destinatsionReview" editable="true">
 													<f:content>
 														<core:Title text="Destination" emphasized="true" icon="sap-icon://locate-me"/>
 														<Label text="Country"/>
-														<Text text="{travelMasterData>/country}"></Text>
+														<Text text="{travelData>/country}"></Text>
 														<Label text="Additional Destinations"/>
-														<Text text="{travelMasterData>/addtionalDest}"></Text>
+														<Text text="{travelData>/addtionalDest}"></Text>
 													</f:content>
 													<f:content>
 														<core:Title text=""/>
 														<Label text="Destination"/>
-														<Text text="{travelMasterData>/destination}"></Text>
+														<Text text="{travelData>/destination}"></Text>
 													</f:content>
 												</f:SimpleForm>
 												<f:SimpleForm id="addiotionalInfoReview" editable="true">
 													<f:content>
 														<core:Title text="Additional Information" emphasized="true" icon="sap-icon://add-coursebook"/>
 														<Label text="Activity (Planning)"/>
-														<Text text="{travelMasterData>/activity}"></Text>
+														<Text text="{travelData>/activity}"></Text>
 														
 														<Label text="Reason"/>
-														<Text text="{travelMasterData>/reason}"></Text>
+														<Text text="{travelData>/reason}"></Text>
 														<Label text="Comment"/>
-														<Text text="{travelMasterData>/comment}"></Text>
+														<Text text="{travelData>/comment}"></Text>
 													</f:content>
 													<f:content>
 														<core:Title text=""/>
 														<Label text="Estimated Costs"/>
-														<Text text="{travelMasterData>/estmCosts} INR"></Text>
+														<Text text="{travelData>/estmCosts} INR"></Text>
 														<Label text="Cost Assignment"/>
-														<Text text="{travelMasterData>/costAsgmt}"></Text>
+														<Text text="{travelData>/costAsgmt}"></Text>
 													</f:content>
 												</f:SimpleForm>
 											</FlexBox>

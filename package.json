@@ -2,13 +2,16 @@
   "name": "travelExpenseApp",
   "version": "1.0.0",
   "description": "A simple CAP project.",
-  "repository": "<Add your repository here>",
+  "repository": "https://github.com/Subu1987/travelExpenseAppBAS.git",
   "license": "UNLICENSED",
   "private": true,
   "cds": {
     "requires": {
       "db": {
-        "kind": "sqlite"
+        "kind": "sqlite",
+        "credentials": {
+          "database": "db.sqlite"
+        }
       }
     }
   },

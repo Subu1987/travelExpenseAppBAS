@@ -88,6 +88,9 @@
       "activityNameData": {
         "type": "sap.ui.model.json.JSONModel"
       },
+      "travelData": {
+        "type": "sap.ui.model.json.JSONModel"
+      },
       "travelMasterData": {
         "type": "sap.ui.model.json.JSONModel"
       }

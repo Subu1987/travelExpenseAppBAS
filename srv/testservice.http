@@ -1,7 +1,7 @@
-GET http://localhost:4004/odata/v4/travel-expense-dbdb/employeeMaster
+GET http://localhost:5000/odata/v4/travel-expense-dbdb/employeeMaster
 
 ###
-POST http://localhost:4004/odata/v4/travel-expense-dbdb/travelMaster
+POST http://localhost:5000/odata/v4/travel-expense-dbdb/travelMaster
 Content-Type: application/json
 
 {
@@ -20,3 +20,5 @@ Content-Type: application/json
     "costAsgmt": "ok",
     "saveAs": "F"
 }
+###
+GET http://localhost:4004/odata/v4/travel-expense-dbdb/travelMaster
