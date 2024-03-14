@@ -1,2 +1,3 @@
-empID,companyCode,empName,empMail,empBranch,empGrade,empDesignation,gender,empMobileNo1,empMobileNo2,address1,address2,country,activeIND,costCenter
-1,8001,Subrato Saha,subrotosaha@gmail.com,kolkata,D,Quality Engineer,Male,9807654123,9088888234,"salt lake, kolkata",,India,X,1001
+empID,companyCode,empName,empMail,empBranch,department,empGrade,empDesignation,gender,empMobileNo1,empMobileNo2,address1,address2,country,activeIND,costCenter
+1,8001,Subrato Saha,subrotosaha@gmail.com,kolkata,Quality,D,Quality Engineer,Male,9807654123,9088888234,"salt lake, Kolkata",,India,X,1001
+2,8002,Arun Kumar,arunkumar@gmail.com,kolkata,IT,D,IT Admin,Male,9087850660,8961700567,"Mintu park,Kolkata",,India,X,1002

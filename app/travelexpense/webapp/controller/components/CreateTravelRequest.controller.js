@@ -79,7 +79,7 @@ sap.ui.define([
                 oTravelData.saveAs = "F";
                 // Set the association between the travel record and the existing employee
                 oTravelData.employee = {
-                    "empID": existingEmployeeData[0].empID
+                    "empID": parseInt(existingEmployeeData.empID)
                 }
                 oTravelModel.setData(oTravelData);
 

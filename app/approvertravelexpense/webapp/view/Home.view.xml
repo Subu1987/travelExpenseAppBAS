@@ -1,0 +1,22 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:tnt="sap.tnt" controllerName="sembcorp.com.approvertravelexpense.controller.Home">
+    <VBox class="app-container">
+        <!-- Common ToolHeader for both Master and Detail Pages -->
+        <tnt:ToolHeader height="80px" class="headerBox">
+            <Title text="{i18n>comTitle}" titleStyle="H1"/>
+            <Text text="{i18n>appTitle}"/>
+            <ToolbarSpacer/> 
+            <Text text="Subrato Saha"/>
+            <Button press="onProfilePopUp" type="Transparent" icon="sap-icon://slim-arrow-down" class="smallIcon"/>
+        </tnt:ToolHeader>
+        
+        <!-- SplitContainer for Master and Detail Views -->
+        <SplitApp id="app" xmlns="sap.m">
+        <masterPages>
+            <mvc:XMLView viewName="sembcorp.com.approvertravelexpense.view.components.Master" />
+        </masterPages>
+        <detailPages>
+            <mvc:XMLView viewName="sembcorp.com.approvertravelexpense.view.components.Detail" />
+        </detailPages>
+    </SplitApp>
+    </VBox>
+</mvc:View>

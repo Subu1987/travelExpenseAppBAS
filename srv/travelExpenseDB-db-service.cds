@@ -8,6 +8,5 @@ service TravelExpenseDBDbService {
     entity managerMaster      as projection on my.managerMaster;
     entity travelMaster       as projection on my.travelMaster;
     entity expenseClaimMaster as projection on my.expenseClaimMaster;
-    entity testData as projection on my.testData;
     
 }

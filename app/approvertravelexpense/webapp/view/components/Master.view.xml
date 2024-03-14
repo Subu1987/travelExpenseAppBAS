@@ -1,0 +1,7 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" controllerName="sembcorp.com.approvertravelexpense.controller.components.Master">
+	<List items="{model>/items}" mode="SingleSelectMaster" selectionChange="onListItemPress">
+		<items>
+			<StandardListItem title="{model>Title}" description="{model>Description}"/>
+		</items>
+	</List>
+</mvc:View>

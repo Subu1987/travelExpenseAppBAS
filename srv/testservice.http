@@ -1,7 +1,14 @@
-GET http://localhost:5000/odata/v4/travel-expense-dbdb/employeeMaster
+GET http://localhost:4004/odata/v4/travel-expense-dbdb/localhost:4004/odata/v4/travel-expense-dbdb/employeeMaster
+
+###single data 
+GET http://localhost:4004/odata/v4/travel-expense-dbdb/employeeMaster?$filter=empID eq 2
 
 ###
-POST http://localhost:5000/odata/v4/travel-expense-dbdb/travelMaster
+GET http://localhost:4004/odata/v4/travel-expense-dbdb/employeeMaster(2)
+
+
+###
+POST http://localhost:4004/odata/v4/travel-expense-dbdb/travelMaster
 Content-Type: application/json
 
 {
@@ -21,4 +28,4 @@ Content-Type: application/json
     "saveAs": "F"
 }
 ###
-GET http://localhost:4004/odata/v4/travel-expense-dbdb/travelMaster
+GET http://localhost:4004/odata/v4/travel-expense-dbdb/travelMaster(4)

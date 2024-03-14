@@ -1,7 +1,7 @@
 {
   "_version": "1.59.0",
   "sap.app": {
-    "id": "sembcorp.com.travelexpense",
+    "id": "sembcorp.com.approvertravelexpense",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -12,8 +12,8 @@
     "resources": "resources.json",
     "sourceTemplate": {
       "id": "@sap/generator-fiori:basic",
-      "version": "1.12.4",
-      "toolsId": "8df0d0eb-8974-420b-af5f-32ff82971526"
+      "version": "1.12.5",
+      "toolsId": "4cf893bd-2686-4924-90b9-e11423e494f3"
     },
     "dataSources": {
       "mainService": {
@@ -21,6 +21,7 @@
         "type": "OData",
         "settings": {
           "annotations": [],
+          "localUri": "localService/metadata.xml",
           "odataVersion": "4.0"
         }
       }
@@ -43,9 +44,9 @@
     }
   },
   "sap.ui5": {
-    "flexEnabled": false,
+    "flexEnabled": true,
     "dependencies": {
-      "minUI5Version": "1.120.8",
+      "minUI5Version": "1.121.1",
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
@@ -65,7 +66,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "sembcorp.com.travelexpense.i18n.i18n"
+          "bundleName": "sembcorp.com.approvertravelexpense.i18n.i18n"
         }
       },
       "": {
@@ -75,27 +76,8 @@
           "synchronizationMode": "None",
           "operationMode": "Server",
           "autoExpandSelect": true,
-          "earlyRequests": true,
-          "groupId":"$auto"
+          "earlyRequests": true
         }
-      },
-      "globalData": {
-        "type": "sap.ui.model.json.JSONModel"
-      },
-      "employeeMasterData": {
-        "type": "sap.ui.model.json.JSONModel"
-      },
-      "countryNameData": {
-        "type": "sap.ui.model.json.JSONModel"
-      },
-      "activityNameData": {
-        "type": "sap.ui.model.json.JSONModel"
-      },
-      "travelData": {
-        "type": "sap.ui.model.json.JSONModel"
-      },
-      "travelMasterData": {
-        "type": "sap.ui.model.json.JSONModel"
       }
     },
     "resources": {
@@ -110,22 +92,22 @@
         "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
         "async": true,
-        "viewPath": "sembcorp.com.travelexpense.view",
+        "viewPath": "sembcorp.com.approvertravelexpense.view",
         "controlAggregation": "pages",
         "controlId": "app",
         "clearControlAggregation": false
       },
       "routes": [
         {
-          "name": "RouteView1",
+          "name": "RouteApp",
           "pattern": ":?query:",
           "target": [
-            "TargetView1"
+            "TargetApp"
           ]
         }
       ],
       "targets": {
-        "TargetView1": {
+        "TargetApp": {
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,
@@ -135,7 +117,7 @@
       }
     },
     "rootView": {
-      "viewName": "sembcorp.com.travelexpense.view.App",
+      "viewName": "sembcorp.com.approvertravelexpense.view.App",
       "type": "XML",
       "async": true,
       "id": "App"

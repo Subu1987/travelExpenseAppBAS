@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="TravelExpenseDBDbService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="countryMaster" EntityType="TravelExpenseDBDbService.countryMaster"/>
+                <EntitySet Name="activityMaster" EntityType="TravelExpenseDBDbService.activityMaster"/>
+                <EntitySet Name="reasonMaster" EntityType="TravelExpenseDBDbService.reasonMaster"/>
+                <EntitySet Name="employeeMaster" EntityType="TravelExpenseDBDbService.employeeMaster">
+                    <NavigationPropertyBinding Path="travel" Target="travelMaster"/>
+                </EntitySet>
+                <EntitySet Name="managerMaster" EntityType="TravelExpenseDBDbService.managerMaster"/>
+                <EntitySet Name="travelMaster" EntityType="TravelExpenseDBDbService.travelMaster">
+                    <NavigationPropertyBinding Path="employee" Target="employeeMaster"/>
+                </EntitySet>
+                <EntitySet Name="expenseClaimMaster" EntityType="TravelExpenseDBDbService.expenseClaimMaster"/>
+                <EntitySet Name="testData" EntityType="TravelExpenseDBDbService.testData"/>
+            </EntityContainer>
+            <EntityType Name="countryMaster">
+                <Key>
+                    <PropertyRef Name="countryID"/>
+                </Key>
+                <Property Name="countryID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="countryName" Type="Edm.String" MaxLength="100" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="activityMaster">
+                <Key>
+                    <PropertyRef Name="activityID"/>
+                </Key>
+                <Property Name="activityID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="activityName" Type="Edm.String" MaxLength="100" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="reasonMaster">
+                <Key>
+                    <PropertyRef Name="reasonID"/>
+                </Key>
+                <Property Name="reasonID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="reasonName" Type="Edm.String" MaxLength="100"/>
+            </EntityType>
+            <EntityType Name="employeeMaster">
+                <Key>
+                    <PropertyRef Name="empID"/>
+                </Key>
+                <Property Name="empID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="companyCode" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="empName" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="empMail" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="empBranch" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="empGrade" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="empDesignation" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="gender" Type="Edm.String" MaxLength="50" Nullable="false"/>
+                <Property Name="empMobileNo1" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="empMobileNo2" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="address1" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="address2" Type="Edm.String" MaxLength="100"/>
+                <Property Name="country" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="activeIND" Type="Edm.String" MaxLength="100"/>
+                <Property Name="costCenter" Type="Edm.Int32"/>
+                <NavigationProperty Name="travel" Type="Collection(TravelExpenseDBDbService.travelMaster)" Partner="employee"/>
+            </EntityType>
+            <EntityType Name="managerMaster">
+                <Key>
+                    <PropertyRef Name="mngrID"/>
+                </Key>
+                <Property Name="mngrID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="companyCode" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="mngrName" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="mngrMail" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="mngrBranch" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="mngrGrade" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="mngrDesination" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="gender" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="mngrMobileNo1" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="mngrMobile2" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="address1" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="address2" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="country" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="activeIND" Type="Edm.String" MaxLength="100"/>
+                <Property Name="costCenter" Type="Edm.String" MaxLength="100"/>
+            </EntityType>
+            <EntityType Name="travelMaster">
+                <Key>
+                    <PropertyRef Name="travelID"/>
+                </Key>
+                <Property Name="travelID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="startD" Type="Edm.String" MaxLength="50" Nullable="false"/>
+                <Property Name="endD" Type="Edm.String" MaxLength="50" Nullable="false"/>
+                <Property Name="departure" Type="Edm.String" MaxLength="50" Nullable="false"/>
+                <Property Name="arrival" Type="Edm.String" MaxLength="50" Nullable="false"/>
+                <Property Name="postingD" Type="Edm.String" MaxLength="50"/>
+                <Property Name="country" Type="Edm.String" MaxLength="100"/>
+                <Property Name="destination" Type="Edm.String" MaxLength="100"/>
+                <Property Name="addtionalDest" Type="Edm.String" MaxLength="100"/>
+                <Property Name="activity" Type="Edm.String" MaxLength="100"/>
+                <Property Name="reason" Type="Edm.String" MaxLength="100"/>
+                <Property Name="estmCosts" Type="Edm.String" MaxLength="100"/>
+                <Property Name="comment" Type="Edm.String" MaxLength="100"/>
+                <Property Name="costAsgmt" Type="Edm.String" MaxLength="100"/>
+                <Property Name="saveAs" Type="Edm.String" MaxLength="5"/>
+                <NavigationProperty Name="employee" Type="TravelExpenseDBDbService.employeeMaster" Partner="travel">
+                    <ReferentialConstraint Property="employee_empID" ReferencedProperty="empID"/>
+                </NavigationProperty>
+                <Property Name="employee_empID" Type="Edm.Int32"/>
+            </EntityType>
+            <EntityType Name="expenseClaimMaster">
+                <Key>
+                    <PropertyRef Name="expnsClaimID"/>
+                    <PropertyRef Name="empId"/>
+                </Key>
+                <Property Name="expnsClaimID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="empId" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="startD" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="endD" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="departure" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="arrival" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="postingD" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="countryName" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="destination" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="additionalDest" Type="Edm.String" MaxLength="100"/>
+                <Property Name="reasonName" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="comment" Type="Edm.String" MaxLength="100"/>
+                <Property Name="estmCosts" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="costAsgmt" Type="Edm.String" MaxLength="100" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="testData">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="name" Type="Edm.String" MaxLength="20"/>
+                <Property Name="age" Type="Edm.Int32"/>
+            </EntityType>
+            <Annotations Target="TravelExpenseDBDbService.reasonMaster/reasonID">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="TravelExpenseDBDbService.managerMaster/mngrID">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="TravelExpenseDBDbService.expenseClaimMaster/expnsClaimID">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="TravelExpenseDBDbService.expenseClaimMaster/empId">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="TravelExpenseDBDbService.testData/ID">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

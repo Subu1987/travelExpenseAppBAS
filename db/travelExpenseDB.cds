@@ -20,11 +20,12 @@ entity reasonMaster
 
 entity employeeMaster
 {
-    key empID : Integer;
+    key empID : Int32;
     companyCode : Integer not null;
     empName : String(100) not null;
     empMail : String(100) not null;
     empBranch : String(100) not null;
+    department : String(100) not null;
     empGrade : String(100) not null;
     empDesignation : String(100) not null;
     gender : String(50) not null;
@@ -36,26 +37,29 @@ entity employeeMaster
     activeIND : String(100);
     costCenter : Integer;
     travel: Association to many travelMaster on travel.employee = $self;
+    manager:Association to managerMaster;
   
 }
 
 entity managerMaster
 {
-    key mngrID : UUID;
+    key mngrID : Int32;
     companyCode : Integer not null;
     mngrName : String(100) not null;
     mngrMail : String(100) not null;
     mngrBranch : String(100) not null;
+    department : String(100) not null;
     mngrGrade : String(100) not null;
     mngrDesination : String(100) not null;
     gender : String(100) not null;
     mngrMobileNo1 : Integer not null;
-    mngrMobile2 : Integer not null;
+    mngrMobileNo2 : Integer not null;
     address1 : String(100) not null;
     address2 : String(100) not null;
     country : String(100) not null;
     activeIND : String(100);
     costCenter : String(100);
+    employee: Association to many employeeMaster on employee.manager = $self;
 }
 
 entity travelMaster
@@ -94,10 +98,4 @@ entity expenseClaimMaster
     comment : String(100);
     estmCosts : String(100) not null;
     costAsgmt : String(100) not null;
-}
-entity testData {
-    key ID : UUID @cds.auto;
-    name : String(20);
-    age:Integer;
-
 }

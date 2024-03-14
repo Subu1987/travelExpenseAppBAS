@@ -14,13 +14,19 @@ sap.ui.define([
             getTravelMasterData: function () {
                 let that = this;
                 let oModel = this.getOwnerComponent().getModel();
+                let oGlobalData = this.getOwnerComponent().getModel("globalData").getData();
                 let oTravelMasterModel = this.getOwnerComponent().getModel("travelMasterData");
                 // let oTravelMasterData = oTravelMasterModel.getData();
                 let sPath = "/travelMaster";
                 let oContextBinding = oModel.bindContext(sPath);
                 oContextBinding.requestObject().then(function (oData) {
-                    console.log(oData.value);
-                    oTravelMasterModel.setData(oData.value);
+                    // Filter the data based on employee_empID
+                    let filteredData = oData.value.filter(function (item) {
+                        return item.employee_empID === oGlobalData.userId; // Filter for employee_empID 1
+                    });
+
+                    console.log(filteredData);
+                    oTravelMasterModel.setData(filteredData);
                 }).catch(function (oError) {
                     console.log(oError);
                 })

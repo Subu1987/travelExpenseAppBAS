@@ -1,0 +1,81 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	controllerName="sembcorp.com.approvertravelexpense.controller.components.Detail">
+	<Page>
+		<content>
+			<Panel headerText="" class="sapUiResponsiveMargin" width="95%">
+				<content>
+					<HBox width="100%" justifyContent="SpaceBetween" alignItems="Center" class="sapUiSmallMarginTopBottom">
+						<Title text="Trip Details" titleStyle="H2"/>
+						<HBox>
+							<Button text="Submit Expense" class="sapUiTinyMarginEnd"/>
+							<Button text="Request Advance" class="sapUiTinyMarginEnd"/>
+							<Button text="Edit"/>
+						</HBox>
+					</HBox>
+					<FlexBox width="100%" id="__b1" height="100%" justifyContent="Center" direction="Column" alignItems="Stretch">
+						<Panel>
+							<content>
+								<FlexBox justifyContent="SpaceBetween" width="98%" alignItems="Center" class="sapUiSmallMarginBottom">
+									<HBox>
+										<core:Icon src="sap-icon://suitcase" size="1rem" class="sapUiTinyMarginBeginEnd"/>
+										<Title text="Trip Information" titleStyle="H3"/>
+									</HBox>
+									<!--<HBox justifyContent="Start">
+										<Button icon="sap-icon://write-new-document" type="Emphasized" press="editStepOne"/>
+									</HBox>-->
+								</FlexBox>
+								<FlexBox width="100%" id="_box1" height="100%" justifyContent="Center" direction="Column" alignItems="Center" class="border-lineRadius">
+									<!--<Text text="hello"/>-->
+									<FlexBox width="90%" height="250px" id="tripViewReviewPage" wrap="Wrap" justifyContent="Start" alignItems="Center" visible="true">
+										<HBox width="25%" direction="Column">
+											<Label text="Travel Type"/>
+											<Title text="{tripInfo>/travelType}" titleStyle="H5"/>
+										</HBox>
+										<HBox width="25%" direction="Column">
+											<Label text="Trip"/>
+											<Title text="{tripInfo>/tripWay}" titleStyle="H5"/>
+										</HBox>
+										<HBox width="25%" direction="Column">
+											<Label text="From Location"/>
+											<Title text="{tripInfo>/fromLocation}" titleStyle="H5"/>
+										</HBox>
+										<HBox width="25%" direction="Column">
+											<Label text="To Location"/>
+											<Title text="{tripInfo>/toLocation}" titleStyle="H5"/>
+										</HBox>
+										<HBox width="25%" direction="Column">
+											<Label text="Strt Date"/>
+											<Title text="{tripInfo>/startDate}" level="H5"/>
+										</HBox>
+										<HBox width="25%" direction="Column">
+											<Label text="End Dte"/>
+											<Title text="{tripInfo>/endDate}" level="H5"/>
+										</HBox>
+										<HBox width="25%" direction="Column">
+											<Label text="Purpose"/>
+											<Title text="{tripInfo>/purpose}" titleStyle="H5"/>
+										</HBox>
+										<HBox width="25%" direction="Column">
+											<Label text="Trip Cost Center"/>
+											<Title text="{tripInfo>/costCenter}" titleStyle="H5"/>
+										</HBox>
+										<HBox width="auto" direction="Column">
+											<Label text="Travel Details"/>
+											<Title text="{tripInfo>/travelDetails}" wrapping="true" titleStyle="H5"/>
+										</HBox>
+									</FlexBox>
+								</FlexBox>
+							</content>
+							<content>
+								<HBox class="sapUiMediumMarginTopBottom" justifyContent="End">
+									<Button text="Reject" type="Emphasized" class="sapUiTinyMarginEnd"/>
+									<Button text="Approve" type="Emphasized" press="sendForApproval"/>
+								</HBox>
+							</content>
+						</Panel>
+					</FlexBox>
+				</content>
+			</Panel>
+		</content>
+	</Page>
+</mvc:View>
