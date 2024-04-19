@@ -55,7 +55,7 @@ entity managerMaster
     mngrMobileNo1 : Integer not null;
     mngrMobileNo2 : Integer not null;
     address1 : String(100) not null;
-    address2 : String(100) not null;
+    address2 : String(100);
     country : String(100) not null;
     activeIND : String(100);
     costCenter : String(100);
@@ -80,6 +80,7 @@ entity travelMaster
     costAsgmt : String(100);
     saveAs: String(5);
     employee: Association to employeeMaster;
+    status:String(5);
 }   
 
 entity expenseClaimMaster

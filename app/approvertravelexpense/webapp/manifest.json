@@ -44,7 +44,7 @@
     }
   },
   "sap.ui5": {
-    "flexEnabled": true,
+    "flexEnabled": false,
     "dependencies": {
       "minUI5Version": "1.121.1",
       "libs": {
@@ -78,6 +78,18 @@
           "autoExpandSelect": true,
           "earlyRequests": true
         }
+      },
+      "globalData": {
+        "type": "sap.ui.model.json.JSONModel"
+      },
+      "approverMasterData": {
+        "type": "sap.ui.model.json.JSONModel"
+      },
+      "employeeMasterData": {
+        "type": "sap.ui.model.json.JSONModel"
+      },
+      "travelMasterData": {
+        "type": "sap.ui.model.json.JSONModel"
       }
     },
     "resources": {

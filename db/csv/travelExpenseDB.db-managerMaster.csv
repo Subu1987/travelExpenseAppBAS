@@ -1,0 +1,4 @@
+mngrID,companyCode,mngrName,mngrMail,mngrBranch,department,mngrGrade,mngrDesination,gender,mngrMobileNo1,mngrMobileNo2,address1,address2,country,activeIND,costCenter
+1,9001,Sumit Ghanty,sumit@gmail.com,kolkata,Fiori,C,department head,Male,9088888567,8961709876,"Mintu park,Kolkata",,India,X,1101
+2,9002,Arun Kumar ,arunkumar@gmail.com,kolkata,IT,C,IT Head,Male,9088888567,8961709876,"Mintu park,Kolkata",,India,X,1102
+3,9003,Sabbir Ahmed,sabbir123@gmail.com,kolkata,Basis,C,Basis Head,Male,9088888567,8961709876,"Mintu park,Kolkata",,India,X,1103

@@ -29,3 +29,6 @@ Content-Type: application/json
 }
 ###
 GET http://localhost:4004/odata/v4/travel-expense-dbdb/travelMaster(4)
+
+### get all travel master data 
+GET http://localhost:4004/odata/v4/travel-expense-dbdb/travelMaster

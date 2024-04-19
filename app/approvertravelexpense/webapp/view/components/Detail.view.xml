@@ -1,78 +1,71 @@
-<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:tnt="sap.tnt" xmlns:form="sap.ui.layout.form"
+	xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
 	controllerName="sembcorp.com.approvertravelexpense.controller.components.Detail">
 	<Page>
 		<content>
 			<Panel headerText="" class="sapUiResponsiveMargin" width="95%">
 				<content>
-					<HBox width="100%" justifyContent="SpaceBetween" alignItems="Center" class="sapUiSmallMarginTopBottom">
-						<Title text="Trip Details" titleStyle="H2"/>
+					<FlexBox justifyContent="SpaceBetween" width="98%" alignItems="Center" class="sapUiSmallMarginBottom">
 						<HBox>
-							<Button text="Submit Expense" class="sapUiTinyMarginEnd"/>
-							<Button text="Request Advance" class="sapUiTinyMarginEnd"/>
-							<Button text="Edit"/>
+							<Title text="1. General Data" titleStyle="H3"/>
 						</HBox>
-					</HBox>
-					<FlexBox width="100%" id="__b1" height="100%" justifyContent="Center" direction="Column" alignItems="Stretch">
-						<Panel>
-							<content>
-								<FlexBox justifyContent="SpaceBetween" width="98%" alignItems="Center" class="sapUiSmallMarginBottom">
-									<HBox>
-										<core:Icon src="sap-icon://suitcase" size="1rem" class="sapUiTinyMarginBeginEnd"/>
-										<Title text="Trip Information" titleStyle="H3"/>
-									</HBox>
-									<!--<HBox justifyContent="Start">
-										<Button icon="sap-icon://write-new-document" type="Emphasized" press="editStepOne"/>
-									</HBox>-->
-								</FlexBox>
-								<FlexBox width="100%" id="_box1" height="100%" justifyContent="Center" direction="Column" alignItems="Center" class="border-lineRadius">
-									<!--<Text text="hello"/>-->
-									<FlexBox width="90%" height="250px" id="tripViewReviewPage" wrap="Wrap" justifyContent="Start" alignItems="Center" visible="true">
-										<HBox width="25%" direction="Column">
-											<Label text="Travel Type"/>
-											<Title text="{tripInfo>/travelType}" titleStyle="H5"/>
-										</HBox>
-										<HBox width="25%" direction="Column">
-											<Label text="Trip"/>
-											<Title text="{tripInfo>/tripWay}" titleStyle="H5"/>
-										</HBox>
-										<HBox width="25%" direction="Column">
-											<Label text="From Location"/>
-											<Title text="{tripInfo>/fromLocation}" titleStyle="H5"/>
-										</HBox>
-										<HBox width="25%" direction="Column">
-											<Label text="To Location"/>
-											<Title text="{tripInfo>/toLocation}" titleStyle="H5"/>
-										</HBox>
-										<HBox width="25%" direction="Column">
-											<Label text="Strt Date"/>
-											<Title text="{tripInfo>/startDate}" level="H5"/>
-										</HBox>
-										<HBox width="25%" direction="Column">
-											<Label text="End Dte"/>
-											<Title text="{tripInfo>/endDate}" level="H5"/>
-										</HBox>
-										<HBox width="25%" direction="Column">
-											<Label text="Purpose"/>
-											<Title text="{tripInfo>/purpose}" titleStyle="H5"/>
-										</HBox>
-										<HBox width="25%" direction="Column">
-											<Label text="Trip Cost Center"/>
-											<Title text="{tripInfo>/costCenter}" titleStyle="H5"/>
-										</HBox>
-										<HBox width="auto" direction="Column">
-											<Label text="Travel Details"/>
-											<Title text="{tripInfo>/travelDetails}" wrapping="true" titleStyle="H5"/>
-										</HBox>
-									</FlexBox>
-								</FlexBox>
-							</content>
-							<content>
-								<HBox class="sapUiMediumMarginTopBottom" justifyContent="End">
-									<Button text="Reject" type="Emphasized" class="sapUiTinyMarginEnd"/>
-									<Button text="Approve" type="Emphasized" press="sendForApproval"/>
-								</HBox>
-							</content>
-						</Panel>
+						<!-- <HBox justifyContent="Start">
+							<Button icon="sap-icon://write-new-document" type="Emphasized" press="backToWizardContent"/>
+						</HBox> -->
+					</FlexBox>
+					<FlexBox width="100%" id="_box1" height="100%" justifyContent="Center" direction="Column" alignItems="Center" class="border-lineRadius">
+						<FlexBox width="100%" id="tripViewReviewPage" direction="Column" justifyContent="Center">
+							<f:SimpleForm id="generalDataReview" editable="true">
+								<f:content>
+									<core:Title text="General Data" emphasized="true" icon="sap-icon://message-information" level="H4"/>
+									<Label text="Start Date"/>
+									<Text text="{travelData>/startD}"></Text>
+									<Label text="End Date"/>
+									<Text text="{travelData>/endD}"></Text>
+									<Label text="Posting Date"/>
+									<Text text="{travelData>/postingD}"></Text>
+
+									<core:Title text=""/>
+									<Label text="Departure"/>
+									<Text text="{travelData>/departure}"></Text>
+									<Label text="Arrival"/>
+									<Text text="{travelData>/arrival}"></Text>
+								</f:content>
+							</f:SimpleForm>
+							<f:SimpleForm id="destinatsionReview" editable="true">
+								<f:content>
+									<core:Title text="Destination" emphasized="true" icon="sap-icon://locate-me"/>
+									<Label text="Country"/>
+									<Text text="{travelData>/country}"></Text>
+									<Label text="Additional Destinations"/>
+									<Text text="{travelData>/addtionalDest}"></Text>
+								</f:content>
+								<f:content>
+									<core:Title text=""/>
+									<Label text="Destination"/>
+									<Text text="{travelData>/destination}"></Text>
+								</f:content>
+							</f:SimpleForm>
+							<f:SimpleForm id="addiotionalInfoReview" editable="true">
+								<f:content>
+									<core:Title text="Additional Information" emphasized="true" icon="sap-icon://add-coursebook"/>
+									<Label text="Activity (Planning)"/>
+									<Text text="{travelData>/activity}"></Text>
+									
+									<Label text="Reason"/>
+									<Text text="{travelData>/reason}"></Text>
+									<Label text="Comment"/>
+									<Text text="{travelData>/comment}"></Text>
+								</f:content>
+								<f:content>
+									<core:Title text=""/>
+									<Label text="Estimated Costs"/>
+									<Text text="{travelData>/estmCosts} INR"></Text>
+									<Label text="Cost Assignment"/>
+									<Text text="{travelData>/costAsgmt}"></Text>
+								</f:content>
+							</f:SimpleForm>
+						</FlexBox>
 					</FlexBox>
 				</content>
 			</Panel>

@@ -11,7 +11,8 @@ sap.ui.define([
 
         return BaseController.extend("sembcorp.com.travelexpense.controller.Home", {
             onInit: function () {
-
+                let oElement = this.byId("idIconTabBar");
+                console.log(oElement);
                 // get User ID from logged user
                 this.getUserIdFromLoggedInUser();
 
@@ -22,7 +23,7 @@ sap.ui.define([
             },
             getUserIdFromLoggedInUser: function () {
                 let that = this;
-                let userId = "2";
+                let userId = "1";
 
                 this.onGlobalUserIdSet(userId);
                 this.getEmployeeMasterData();

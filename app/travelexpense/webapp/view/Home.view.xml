@@ -42,14 +42,14 @@
 				</content>
 			</Panel>
 			
-			<IconTabBar id="idIconTabBarFiori2" expanded="true">
+			<IconTabBar id="idIconTabBar" expanded="true">
 				<items>
-					<IconTabFilter text="My Trips &amp; Expenses" key="info">
-						<content>
+					<IconTabFilter text="My Trips &amp; Expenses" key="myTravelExpense">
+						<content>5
 							<mvc:XMLView viewName="sembcorp.com.travelexpense.view.components.MyTripExpenses" visible="true"/>
 						</content>
 					</IconTabFilter>
-					<IconTabFilter text="Create Travel Request" key="info">
+					<IconTabFilter text="Create Travel Request" key="createTravelRequest">
 						<content>
 							<mvc:XMLView viewName="sembcorp.com.travelexpense.view.components.CreateTravelRequest" visible="true"/>
 						</content>

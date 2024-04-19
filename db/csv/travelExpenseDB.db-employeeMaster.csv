@@ -1,3 +1,5 @@
-empID,companyCode,empName,empMail,empBranch,department,empGrade,empDesignation,gender,empMobileNo1,empMobileNo2,address1,address2,country,activeIND,costCenter
-1,8001,Subrato Saha,subrotosaha@gmail.com,kolkata,Quality,D,Quality Engineer,Male,9807654123,9088888234,"salt lake, Kolkata",,India,X,1001
-2,8002,Arun Kumar,arunkumar@gmail.com,kolkata,IT,D,IT Admin,Male,9087850660,8961700567,"Mintu park,Kolkata",,India,X,1002
+empID,companyCode,empName,empMail,empBranch,department,empGrade,empDesignation,gender,empMobileNo1,empMobileNo2,address1,address2,country,activeIND,costCenter,manager_mngrID
+1,8001,Subrato Saha,subrotosaha@gmail.com,kolkata,Fiori,D,Java Developer,Male,9807654123,9088888234,"salt lake, Kolkata",,India,X,1001,1
+2,8002,Sanjay Roy,sanjay678@gmail.com,kolkata,IT,D,IT Admin,Male,9087850660,8961700567,"Mintu park,Kolkata",,India,X,1002,2
+3,8003,Argha Khawas,arunkumar@gmail.com,kolkata,IT,D,IT Employee,Male,9087850660,8961700567,"Mintu park,Kolkata",,India,X,1003,2
+4,8004,Amartya Sadhu,arunkumar@gmail.com,kolkata,Basis,D,Basis Team,Male,9087850660,8961700567,"Mintu park,Kolkata",,India,X,1004,3

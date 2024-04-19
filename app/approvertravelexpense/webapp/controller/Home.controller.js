@@ -9,30 +9,46 @@ sap.ui.define([
 
         return BaseController.extend("sembcorp.com.approvertravelexpense.controller.Home", {
             onInit: function () {
-                
-                // this.getEmployeeMasterData();
+                // get User ID from logged user
+                this.getUserIdFromLoggedInUser();
 
             },
-            // getEmployeeMasterData: function(){
-            //     let that = this;
+            getUserIdFromLoggedInUser: function () {
+                let that = this;
+                let userId = "2";
 
-            //     let oModel = this.getOwnerComponent().getModel();
-            //     let sPath = "/employeeMaster";
-            //     // console.log(oModel);
+                this.onGlobalUserIdSet(userId);
+                this.getApproverMasterData();
+            },
+            onGlobalUserIdSet: function (oUserId) {
+                let oGlobalModel = this.getOwnerComponent().getModel("globalData");
+                let oGlobalData = oGlobalModel.getData();
 
-            //     let oContextBinding = oModel.bindContext(sPath);
-            //     oContextBinding.requestObject().then(function(oData){
-            //         console.log(oData.value);
-                    
-            //         let oEmployeeMasterModel = that.getOwnerComponent().getModel("employeeMasterData");
-            //         oEmployeeMasterModel.setData(oData.value);
+                // create the userId property 
+                oGlobalData.userId = oGlobalData.userId === undefined ? "" : oGlobalData.userId;
+                oGlobalData.userId = oUserId;
+                oGlobalModel.setData(oGlobalData);
+            },
+            getApproverMasterData: function () {
+                let that = this;
+                let oModel = this.getOwnerComponent().getModel();
+                let oGlobalData = this.getOwnerComponent().getModel("globalData").getData();
+                // let sFilter = new Filter("empID", sap.ui.model.FilterOperator.EQ, oGlobalData.userId);
+                let sPath = "/managerMaster(" + oGlobalData.userId + ")";
 
-            //         console.log(oEmployeeMasterModel);
-            //     }).catch(function(oError){
-            //         console.log(oError);
-            //     })
-            // }
+                let oContextBinding = oModel.bindContext(sPath);
+                oContextBinding.requestObject().then(function (oData) {
+                    console.log(oData);
 
-            
+                    let oApproverMasterModel = that.getOwnerComponent().getModel("approverMasterData");
+                    oApproverMasterModel.setData(oData);
+
+                    console.log(oApproverMasterModel);
+                }).catch(function (oError) {
+                    console.log(oError);
+                });
+            },
+
+
         });
     });

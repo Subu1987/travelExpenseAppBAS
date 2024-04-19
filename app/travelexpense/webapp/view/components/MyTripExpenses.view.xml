@@ -64,7 +64,7 @@
 														<Text text="{travelMasterData>endD}"/>
 														<Text text="{travelMasterData>departure}"/>
 														<Text text="{travelMasterData>arrival}"/>
-														<ObjectIdentifier title="{status}" text=""/>
+														<ObjectIdentifier title="{= ${travelMasterData>status} === 'P' ? 'Pending' : ${travelMasterData>status} === 'A' ? 'Approved' : ${travelMasterData>status} === 'R' ? 'Rejected' : '' }" text=""/>
 														<!--<ObjectNumber number="{}"/>
 												<ObjectNumber number="{}"/>-->
 													</cells>

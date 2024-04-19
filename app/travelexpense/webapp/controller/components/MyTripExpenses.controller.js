@@ -22,7 +22,7 @@ sap.ui.define([
                 oContextBinding.requestObject().then(function (oData) {
                     // Filter the data based on employee_empID
                     let filteredData = oData.value.filter(function (item) {
-                        return item.employee_empID === oGlobalData.userId; // Filter for employee_empID 1
+                        return item.employee_empID === parseInt(oGlobalData.userId);  // Filter for employee_empID 1
                     });
 
                     console.log(filteredData);

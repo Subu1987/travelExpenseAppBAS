@@ -1,14 +1,17 @@
 sap.ui.define([
-    "sembcorp/com/travelexpense/controller/BaseController"
+    "sembcorp/com/travelexpense/controller/BaseController",
+    "sap/m/MessageBox"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (BaseController) {
+    function (BaseController, MessageBox) {
         "use strict";
 
         return BaseController.extend("sembcorp.com.travelexpense.controller.components.CreateTravelRequest", {
             onInit: function () {
+                let oElement = this.byId("idIconTabBar");
+                console.log(oElement);
 
             },
             wizardCompletedHandler: function () {
@@ -77,6 +80,7 @@ sap.ui.define([
                 let existingEmployeeData = oEmployeeMasterModel.getData();
 
                 oTravelData.saveAs = "F";
+                oTravelData.status = "P";
                 // Set the association between the travel record and the existing employee
                 oTravelData.employee = {
                     "empID": parseInt(existingEmployeeData.empID)
@@ -89,6 +93,9 @@ sap.ui.define([
 
                 oContext.created().then(function (data) {
                     console.log("data saved successfully", data);
+
+                    // show messageBox 
+
 
                 }).catch(function (error) {
                     console.log("something wrong", error);
